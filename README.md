@@ -1,2 +1,1 @@
-# RLab_ShaderMasterClass
-RLab_ShaderMasterClass
+# R-Lab-Shader-Masterclass

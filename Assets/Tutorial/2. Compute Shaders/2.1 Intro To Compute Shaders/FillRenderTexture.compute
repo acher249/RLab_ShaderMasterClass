@@ -1,0 +1,18 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+
+float2 _Resolution;
+float4 _Time;
+
+[numthreads(8,8,1)]
+//id is what pixel the shader is executing on
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	float2 uv = (float2)id.xy / _Resolution;
+
+    Result[id.xy] = float4(frac(uv.x + _Time.y), 0,0, 1.0);
+}
